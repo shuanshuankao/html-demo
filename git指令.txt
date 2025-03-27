@@ -1,0 +1,115 @@
+1. 檢查版本號
+git --version
+
+2. 建立使用者資訊
+git config --global user.name shuankao
+git config --global user.email shuanshuankao1222@gmail.com
+
+3. 初始化倉庫(專案底下)
+git init (產生.git)
+
+4. 檔案狀態
+U -> UnTrack (未追蹤)
+
+5. 加入控管
+U -> A
+git add 1.txt(檔案名) (U->A/Add)
+git add . (全部add)
+
+6. 加入控管後
+修改過後的檔案 (A->M/Modified)
+- 需要 git add 確認
+
+7. 控管狀態
+git status
+
+8. 檢查物件對應檔案狀態
+git ls-files 檢查控管列表
+git ls-files -s 檢查對應物件資料夾
+
+9.檢視物件內容(-p)跟型態(-t)
+git cat-file -t d80088(抬頭檔案+底下檔案前四碼) ---> 型態
+git cat-file -p d80088 ---> 內容
+
+10. 控管後的刪除
+- A->D (deleted)
+- git add 3.txt
+- git restore 3.txt ---> 刪除後恢覆
+
+11. 將目前暫存區的檔案變動加入倉庫
+git commit -m/message "完成早上的程式修改"
+git commit ==> vim編輯器
+
+12. 檢視目前 commit
+git log
+git log --oneline
+
+13. 檢視目前分支(預設master)
+git branch
+
+＃產生分支
+git branch test
+git checkout test
+
+git checkout -b test (新增跟切換)
+
+
+14. 切換 commit
+git checkout 08d7e6(前六碼) ---> 切到單一commit
+git checkout master ---> 回到最完整的程式碼
+
+15. 新增分支
+git branch test
+
+16. 合併分支
+- master 合併其他分支
+- git checkout master
+- git merge test
+- git branch -D test （刪除分支）
+
+17. 合併失敗（衝突）
+- 選擇本分支/其他分支/兩個都保留
+git merge -- abort (取消合併)
+- git add . 
+- git commit -m "合併修正完畢“
+
+18. 看所有 commit 紀錄
+- git reflog
+- git checkout commit-object
+
+19. Reset 重置指令（master => commit）
+- git reset 六碼
+- git reset --hard 六碼
+
+20. 加上雲端倉庫
+
+21. 檢視雲端倉庫url
+- git remote -v
+- origin https://github.com/shuanshuankao/html-demo.git (fetch)
+
+
+### 常用指令
+1. git init
+2. git add .
+3. git status
+4. git commit
+5. git log
+6. git checkout branch/commit-object
+7. git checkout . (恢復未add的變動)
+8. git branch
+9. git checkout -b branch-name
+10. git merge branch-name(切換其他分支)
+11. git reflog
+12. git reset --hard commit-object
+13. git reset --hard HEAD
+    git reset --hart 六碼
+git reset --hard HEAD~1 (HEAD~1前一個commit
+git reset --hard 六碼
+
+
+
+
+
+
+
+
