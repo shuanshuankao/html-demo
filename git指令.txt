@@ -82,10 +82,18 @@ git merge -- abort (取消合併)
 - git reset --hard 六碼
 
 20. 加上雲端倉庫
+- git remote add origin https://github.com/shuanshuankao/html-demo.git
 
 21. 檢視雲端倉庫url
 - git remote -v
 - origin https://github.com/shuanshuankao/html-demo.git (fetch)
+
+22. 推送到雲端倉庫
+- git push -u origin master
+- git push  
+
+23. 複製專案
+- git clone https://github.com/shuanshuankao/html-demo
 
 
 ### 常用指令
