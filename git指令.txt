@@ -95,6 +95,13 @@ git merge -- abort (取消合併)
 23. 複製專案
 - git clone https://github.com/shuanshuankao/html-demo
 
+24. git pull
+- 將雲端版本同步本地端
+
+25. 合併 commit
+- git add .
+- git commit --amend
+
 
 ### 常用指令
 1. git init
