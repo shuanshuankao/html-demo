@@ -33,6 +33,7 @@
             background-color: rgb(245, 237, 124);
             width: 50%;
             height: 100%;
+            margin: 0 auto;
         }
 
         /* thead tbody tr td */
@@ -55,12 +56,27 @@
         td{
             background-color: rgb(240, 239, 237);
         }
-
+    
+    #picture{
+        text-align: center;
+    }
 
     body{
+        text-align: center;
         background-color: bisque;
         font-family: "標楷體", 'Arial Narrow Bold', sans-serif;
     }
+
+    img{
+        background-color: rgb(241, 234, 229);
+        padding: 5px;
+        border: 1px solid;
+        border-radius: 6px;
+        width: 30%;
+    }
+
+
+
     </style>
 
 </head>
@@ -84,7 +100,7 @@
 
 <hr>
 <div class="title">健身的10個好處</div>
-<ol type="A">
+<ol type="A" style="text-align: left;">
 <li>增加基礎代謝率</li>
 <li>預防疾病和提高免疫力</li>
 <li>改善心情</li>
@@ -152,19 +168,33 @@
     </tbody>
 </table>
 
+<div style="text-align: left;margin: 12px;">
+<a href="bmi.html">
 <b>計算BMI:</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一位民眾身高160公分，體重65公斤，BMI25.4kg/m2(=65÷1.6÷1.6)，體重屬於「過重」。
+&nbsp;&nbsp;&nbsp;&nbsp;一位民眾身高160公分，體重65公斤，BMI25.4kg/m2(=65÷1.6÷1.6)，體重屬於「過重」。
+</a>
 <br>
 <b>計算所需熱量:</b><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因他的工作為坐辦公室，屬輕量工作，每天攝取熱量應在1300至1625大卡之間(=20~25大卡*65公斤)。
-
-
+&nbsp;&nbsp;&nbsp;&nbsp;因他的工作為坐辦公室，屬輕量工作，每天攝取熱量應在1300至1625大卡之間(=20~25大卡*65公斤)。
+</div>
 <hr>
+
 <div class="title">健身圖片</div>
+<div id="picture">
 <!-- 將三張圖片放在同一列 -->
-<img width="33%" src="images/pic-1.jpg" alt="pic-1.jpg">
-<img width="33%" src="images/pic-2.jpg" alt="pic-2.jpg">
-<img width="33%" src="images/pic-3.jpg" alt="pic-3.jpg">
+<img  src="" alt="">
+<img width="32%" src="images/pic-1.jpg" alt="pic-1.jpg">
+<img width="32%" src="images/pic-2.jpg" alt="pic-2.jpg">
+<img width="32%" src="images/pic-3.jpg" alt="pic-3.jpg">
+</div>
+<hr>
+
+<h2>健身影片</h2>
+<!-- ctrl+/ -->
+<!-- <video controls src="video/SampleVideo_720x480_5mb.mp4"></video> -->
+
+
+
 
 </body>
 
