@@ -6,7 +6,8 @@
     <title>首頁</title>
 <!-- 影響整個網頁css設計 -->
     <style>
-    h2{
+    /* . => class */
+    .title{
         color:blueviolet;
         background-color: rgb(228, 240, 214);
         font-family: 'Times New Roman', Times, serif;
@@ -14,7 +15,47 @@
         font-size: 2rem;
         display: inline-block;
         width: 600px;
+        margin: 10px;
+        padding: 1px;
+        border: 1px dotted red;
+        border-radius: 20px;
         }
+
+    /* 設計一下 div+class 對應main-title */
+    .main-title{
+        color:rgb(30, 7, 160);
+        background-color: rgb(228, 240, 214);
+        font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* # => id */
+        #table-bmi{
+            background-color: rgb(245, 237, 124);
+            width: 50%;
+            height: 100%;
+        }
+
+        /* thead tbody tr td */
+        thead{
+            background-color: rgb(155, 221, 221);
+        }
+
+        tbody{
+            background-color: rgb(230, 59, 139);
+        }
+
+        tr{
+            color: rgb(11, 20, 1);
+        }
+
+        thead tr{
+            color: black;
+        }
+
+        td{
+            background-color: rgb(240, 239, 237);
+        }
+
 
     body{
         background-color: bisque;
@@ -30,7 +71,8 @@
 <img width="100%" src="https://physicfit.com/wp-content/uploads/2022/08/%E6%96%B0%E6%89%8B%E8%A9%B2%E5%A6%82%E4%BD%95%E9%96%8B%E5%A7%8B%E5%81%A5%E8%BA%AB-%E7%B2%BE%E9%81%B8%E5%9C%96.jpg" alt="">
 </a> 
 
-    <h1 style="color: deepskyblue;background-color: rgb(1, 2, 43);">我愛健身網站</h1>
+    <div class="main-title title">我愛健身網站</div>
+    
     <h3>何謂健身?<br>
         健身，英文稱為workout，健身這兩個字拆開來的意思就是健康身體，通過各種運動方式或方法來增強力量、增加肌肉量、柔韌性、耐力，以及提高協調和控制身體各部分的能力來使我們的身體更強健。
 
@@ -41,7 +83,7 @@
         舞臺上或者是電影螢幕上綻放光彩。</em><b><u>答案就是堅持運動健身!</u></b></p>
 
 <hr>
-<h2 style="color: rgb(132, 0, 255);">健身的10個好處</h2>
+<div class="title">健身的10個好處</div>
 <ol type="A">
 <li>增加基礎代謝率</li>
 <li>預防疾病和提高免疫力</li>
@@ -69,15 +111,15 @@
     
     </ul>
 <hr>
-<h2>好文章連結</h2>
+<div class="title">好文章連結</div>
 <li><a target="_blank" href="https://www.peeta.tw/weight-loss/intermittent-fasting/">間歇性斷食法完整攻略</a></li>
 <li><a target="_blank" href="https://www.peeta.tw/workout/abdominal-training/">腹肌常見的迷思與必備訓練</a></li>
 <br><a target="_blank" href="https://www.peeta.tw/nutrition/preworkout/">Preworkout是什麼？成分介紹與推薦！</a>
 <br><a target="_blank" href="https://www.peeta.tw/weight-loss/fat-loss-diet/">完整的減肥攻略大法</a>
 
 <hr>
-<h2>一天所需卡路里</h2>
-<table border="5">
+<div class="title">一天所需卡路里</div>
+<table id="table-bmi" border="5">
     <thead>
         <tr>
             <th>每天活動量</th>
@@ -118,7 +160,7 @@
 
 
 <hr>
-<h2>健身圖片</h2>
+<div class="title">健身圖片</div>
 <!-- 將三張圖片放在同一列 -->
 <img width="33%" src="images/pic-1.jpg" alt="pic-1.jpg">
 <img width="33%" src="images/pic-2.jpg" alt="pic-2.jpg">
