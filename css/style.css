@@ -1,0 +1,30 @@
+/* 共用css區 */
+
+body{
+    text-align: center;
+    background-color: bisque;
+    font-family: "標楷體", 'Arial Narrow Bold', sans-serif;
+}
+
+.title{
+    color:blueviolet;
+    background-color: rgb(228, 240, 214);
+    font-family: 'Times New Roman', Times, serif;
+    /* 1rem=>16px */
+    font-size: 2rem;
+    display: inline-block;
+    width: 600px;
+    margin: 10px;
+    padding: 1px;
+    border: 1px dotted red;
+    border-radius: 20px;
+    }
+
+/* 設計一下 div+class 對應main-title */
+.main-title{
+    color:rgb(30, 7, 160);
+    background-color: rgb(228, 240, 214);
+    font-family: 'Courier New', Courier, monospace;
+    }
+
+   
