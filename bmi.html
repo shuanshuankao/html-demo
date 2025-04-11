@@ -7,120 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI計算機</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .main-title {
-            color: rgb(102, 255, 0);
-        }
-
-        form {
-            position: relative;
-            width: 40%;
-            background-color: orangered;
-            margin: 24px auto;
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: 10px 10px 5px rgb(37, 44, 46);
-        }
-
-        input {
-            margin: 6px 0px;
-            font-size: 20px;
-            text-align: center;
-            border-radius: 6px;
-        }
-
-        /* label 文字大小 */
-        label {
-            font-size: 20px;
-            text-shadow: 1px 1px 1px;
-        }
-
-        select {}
-
-        /* 性別/居住縣市   使用div */
-        .panel1 {
-            background-color: cyan;
-            padding: 6px;
-            border: 2px dotted pink;
-            margin: 6px;
-        }
-
-        button {
-            margin-top: 1rem;
-            width: 80px;
-            height: 30px;
-            background-color: bisque;
-            border: none;
-            font-size: 16px;
-            border-radius: 6px;
-            color: #a50f0f;
-        }
-
-        button:hover {
-            background-color: blue;
-            cursor: pointer;
-        }
-
-        a {
-            /* 絕對位置 (相對於 relatine) */
-            position: absolute;
-            background-color: brown;
-            color: white;
-            padding: 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            right: 10px;
-            top: 12px;
-        }
-
-        a:hover {
-            color: yellow;
-        }
-
-        #result {
-            font-size: 2rem;
-            font-weight: blod;
-            background-color: chartreuse;
-            width: 600px;
-            margin: 24px auto;
-            padding: 12px;
-            border: 1px dotted darkblue;
-        }
-
-        #info {
-            background-color: darkorange;
-            padding: 3px;
-        }
-
-        .comment {
-            font-size: 2rem;
-            font-weight: 200;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-
-        .bmi {
-            font-size: 2.5rem;
-        }
-
-
-        @media screen and (max-width:600px) {
-            form {
-                width: 80%;
-            }
-        }
-
-        #record {
-            font-size: 32px;
-            margin-top: 24px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/bmi.css">
+    <style></style>
+    <script src="js/bmi.js"></script>
 </head>
 
 <body>
     <div class="main title">BMI計算機</div>
-
-    <div id="record">
-    </div>
+    <div id="record"></div>
 
     <form action="">
         <label for="username">姓名</label>
@@ -179,16 +73,24 @@
         const deleteRecordBtnEl = document.querySelector("#deleteRecordBtn")
         const sexEl = document.querySelector("input[name='sex']:checked");
         // console.log(sexEl, countyEl.value, nameEl, ageEl, heightEl, weightEl, heightEl.value, weightEl.value);
-        console.log(deleteRecordBtnEl);
+        // console.log(deleteRecordBtnEl);
         deleteRecordBtnEl.addEventListener("click", function () {
+            if (!confirm("是否確定刪除?!")) {
+                return,
+            }
+
+
             localStorage.removeItem("record");
+            localStorage.removeItem("datas");
 
             // 刷新頁面
             // window.location.href = "";
             // 清除資料
             data.total = 0;
             data.count = 0;
+            datas = [];
             document.querySelector("#record").innerHTML = "";
+            document.querySelector("#tableRecord").innerHTML = "";
         });
 
 
@@ -212,7 +114,9 @@
             document.querySelector("#record").innerHTML = `紀錄人數:${data.count} 平均BMI:${avg}`;
         }
 
-        renderTable(datas);
+        if (datas.length > 0) {
+            renderTable(datas);
+        }
 
         function addRow(data) {
             return `
@@ -327,65 +231,6 @@
         }
 
 
-
-        function getComment(bmi) {
-            let commit;
-            if (bmi < 18.5) {
-                comment = "「體重過輕」，需要多運動，均衡飲食，以增加體能，維持健康！";
-                color = "cyan";
-            } else if (bmi < 24) {
-                comment = "恭喜！「健康體重」，要繼續保持！";
-                color = "green";
-            } else if (bmi < 27) {
-                comment = "「體重過重」了，要小心囉，趕快力行「健康體重管理」！";
-                color = "orange";
-            } else {
-                comment = "啊～「肥胖」，需要立刻力行「健康體重管理」囉！";
-                color = "red";
-            }
-
-            return [comment, color];
-        }
-        // let x = 10;
-        // let y = 20;
-        // let z = x + y;
-        // // 判斷式
-        // if (x > 10) {
-
-        // } else if (y > 20) {
-
-        // } else {
-        //     console.log(x, y);
-        // }
-
-        // // and or not
-        // x = "10";
-        // y = 10;
-        // // 型態跟值都要相同
-        // console.log(x === y);
-        // // and ==> &&    or ==> |   not ==>!
-        // if (x >= 10 && y >= 30) {
-        //     console.log("1");
-        // }
-        // if (x >= 10 || y >= 30) {
-        //     console.log("1");
-        // }
-
-        // let a = false;
-        // if (!a) {
-        //     console.log(a);
-        // }
-
-        // let height = prompt("請輸入身高 : ");
-        // let weight = prompt("請輸入體重 : ");
-        // let bmi = getBmi(height, weight);
-        // alert("BMI:" + bmi);
-        // 函式宣告
-        function getBmi(height, weight) {
-            const bmi = weight / (height / 100) ** 2;
-            // console.log(bmi.toFixed(2));
-            return bmi.toFixed(2);
-        }
 
 
     </script>

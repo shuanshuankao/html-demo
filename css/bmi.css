@@ -1,0 +1,117 @@
+
+        .main-title {
+            color: rgb(102, 255, 0);
+        }
+
+        form {
+            position: relative;
+            width: 40%;
+            background-color: orangered;
+            margin: 24px auto;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 10px 10px 5px rgb(37, 44, 46);
+        }
+
+        input {
+            margin: 6px 0px;
+            font-size: 20px;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        /* label 文字大小 */
+        label {
+            font-size: 20px;
+            text-shadow: 1px 1px 1px;
+        }
+
+        select {}
+
+        /* 性別/居住縣市   使用div */
+        .panel1 {
+            background-color: cyan;
+            padding: 6px;
+            border: 2px dotted pink;
+            margin: 6px;
+        }
+
+        button {
+            margin-top: 1rem;
+            width: 80px;
+            height: 30px;
+            background-color: bisque;
+            border: none;
+            font-size: 16px;
+            border-radius: 6px;
+            color: #a50f0f;
+        }
+
+        button:hover {
+            background-color: blue;
+            cursor: pointer;
+        }
+
+        a {
+            /* 絕對位置 (相對於 relatine) */
+            position: absolute;
+            background-color: brown;
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            right: 10px;
+            top: 12px;
+        }
+
+        a:hover {
+            color: yellow;
+        }
+
+        #result {
+            font-size: 2rem;
+            font-weight: blod;
+            background-color: chartreuse;
+            width: 600px;
+            margin: 24px auto;
+            padding: 12px;
+            border: 1px dotted darkblue;
+        }
+
+        #info {
+            background-color: darkorange;
+            padding: 3px;
+        }
+
+        .comment {
+            font-size: 2rem;
+            font-weight: 200;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .bmi {
+            font-size: 2.5rem;
+        }
+
+
+        @media screen and (max-width:600px) {
+            form {
+                width: 80%;
+            }
+        }
+
+        #record {
+            font-size: 32px;
+            margin-top: 24px;
+        }
+
+        #result {
+            font-size: 1rem;
+            width: 400px;
+            margin: 12px auto;
+            padding: 6px 12px;
+        }
+
+        table {
+            width: 450px;
+        }
