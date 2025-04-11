@@ -161,14 +161,14 @@
 
     <div id="result" hidden="true">
         BMI:<span class="bmi">
-
         </span>
         <p class="comment">
-
         </p>
     </div>
 
+    <div id="tableRecord">
 
+    </div>
 
     <script>
         const nameEl = document.querySelector("#username");
@@ -178,14 +178,16 @@
         const countyEl = document.querySelector("#county");
         const deleteRecordBtnEl = document.querySelector("#deleteRecordBtn")
         const sexEl = document.querySelector("input[name='sex']:checked");
-
         // console.log(sexEl, countyEl.value, nameEl, ageEl, heightEl, weightEl, heightEl.value, weightEl.value);
         console.log(deleteRecordBtnEl);
         deleteRecordBtnEl.addEventListener("click", function () {
             localStorage.removeItem("record");
+
             // 刷新頁面
             // window.location.href = "";
             // 清除資料
+            data.total = 0;
+            data.count = 0;
             document.querySelector("#record").innerHTML = "";
         });
 
@@ -197,20 +199,64 @@
         }
 
         // 陣列
-        let datas = [];
-
-
+        let datas = JSON.parse(localStorage.getItem("datas")) || [];
+        // let datas = [];
         // 將字串轉成物件
         record = JSON.parse(localStorage.getItem("record"));
+        // records = JSON.parse(localStorage.getItem("datas"));
+
         if (record) {
             data = record;
             // 加入顯示紀錄動作
             let avg = (data.total / data.count).toFixed(1);
             document.querySelector("#record").innerHTML = `紀錄人數:${data.count} 平均BMI:${avg}`;
         }
-        console.log(data);
 
+        renderTable(datas);
 
+        function addRow(data) {
+            return `
+            <tr>
+                <td>${data.name}</td>
+                <td>${data.county}</td>
+                <td>${data.age}</td>
+                <td>${data.sex}</td>
+                <td>${data.height}</td>
+                <td>${data.weight}</td>
+                <td>${data.bmi}</td>
+            </tr>
+            `;
+        }
+
+        function renderTable(datas) {
+            tableData = "";
+            // for i in range(len(datas)):
+            for (let i = 0; i < datas.length; i++) {
+                console.log(i + 1, datas[i]);
+                tableData += addRow(datas[i]);
+            }
+
+            let tableHtml = `
+                <table boder="1px">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>縣市</th>
+                        <th>年齡</th>
+                        <th>性別</th>
+                        <th>身高</th>
+                        <th>體重</th>
+                        <th>BMI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                ${tableData}
+                </tbody>
+            </table>
+            `
+            console.log(tableHtml);
+            document.querySelector("tableRecord").innerHTML = tableHtml;
+        }
 
         function calc() {
             let sexEl = document.querySelector("input[name='sex']:checked");
@@ -232,9 +278,9 @@
 
             // 取得最新的選取
 
-            let userInfo = `${nameEl.value} 年齡:${ageEl.value} 性別:${sexEl.value} 縣市:${countyEl.value}`;
+            let userInfo = `${nameEl.value} 年齡: ${ageEl.value} 性別: ${sexEl.value} 縣市: ${countyEl.value}`;
             console.log(userInfo);
-            document.querySelector("#info").innerHTML = `<h1> ${userInfo} </h1>`;
+            document.querySelector("#info").innerHTML = `< h1 > ${userInfo} </h1 > `;
 
             let bmi = getBmi(height, weight);
             let result = getComment(bmi);
@@ -244,7 +290,7 @@
             bmiEl.style.color = result[1];
             document.querySelector(".comment").innerText = result[0];
             // document.querySelector("#result").innerHTML = "<h1>BMI:" + bmi + "</h1>";
-            // document.querySelector("#result").innerHTML = `<h1> BMI:${bmi}<br>${comment} </h1>`;
+            // document.querySelector("#result").innerHTML = `< h1 > BMI:${ bmi } <br>${comment} </h1>`;
 
 
             // 紀錄每次的 bmi
@@ -274,6 +320,10 @@
             datas.push(person);
             console.log(datas);
 
+            // 儲存datas
+            localStorage.setItem("datas", JSON.stringify(datas));
+
+            renderTable(datas);
         }
 
 
