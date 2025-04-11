@@ -108,6 +108,11 @@
                 width: 80%;
             }
         }
+
+        #record {
+            font-size: 32px;
+            margin-top: 24px;
+        }
     </style>
 </head>
 
@@ -175,6 +180,14 @@
             count: 0
         }
 
+        record = JSON.parse(localStorage.getItem("record"));
+        if (record) {
+            data = record;
+            // 加入顯示紀錄動作
+        }
+        console.log(data);
+
+
         function calc() {
             let height = heightEl.value;
             let weight = weightEl.value;
@@ -212,7 +225,14 @@
             console.log(data);
             let avg = (data.total / data.count).toFixed(1);
             document.querySelector("#record").innerHTML = `紀錄人數:${data.count} 平均BMI:${avg}`;
+
+            // 本地網頁儲存(物件轉換成字串)
+            localStorage.setItem("record", JSON.stringify(data));
+            localStorage.setItem("bmi", bmi);
+
         }
+
+
 
         function getComment(bmi) {
             let commit;
